@@ -13,4 +13,15 @@ patch(PosStore.prototype, {
         }
         return super.setDiscountFromUI(...arguments);
     },
+
+    async onDeleteOrder(order) {
+        const allowed = await checkActionAccess(
+            this, this.dialog, "cancel", _t("Annuler la commande")
+        );
+        if (!allowed) {
+            return false;
+        }
+        return super.onDeleteOrder(...arguments);
+    },
 });
+
