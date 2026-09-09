@@ -18,7 +18,7 @@ export async function checkActionAccess(pos, dialog, actionCode, actionLabel) {
     if (!config.intc_lock_actions) {
         return true;
     }
-    const lockedCodes = (config.intc_lock_type_ids || []).map((t) => t.code);
+    const lockedCodes = (config.intc_lock_codes || "").split(",");
     if (!lockedCodes.includes(actionCode)) {
         return true;
     }

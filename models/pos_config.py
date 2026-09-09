@@ -35,6 +35,19 @@ class PosConfig(models.Model):
         'pos.action.lock.type',
         string="Actions protégées",
     )
+    intc_lock_codes = fields.Char(
+        string="Codes des actions protégées",
+        compute='_compute_intc_lock_codes',
+        store=True,
+        help="Liste technique lue par l'interface du PdV.",
+    )
+
+    @api.depends('intc_lock_type_ids', 'intc_lock_type_ids.code')
+    def _compute_intc_lock_codes(self):
+        for config in self:
+            config.intc_lock_codes = ','.join(
+                config.intc_lock_type_ids.mapped('code')
+            )
 
     def _intc_password_param_key(self):
         self.ensure_one()
