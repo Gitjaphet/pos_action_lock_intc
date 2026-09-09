@@ -5,7 +5,7 @@
     'summary': "Protection par mot de passe des actions sensibles du PdV (remise, remboursement, annulation)",
     'author': 'INTC',
     'license': 'LGPL-3',
-    'depends': ['point_of_sale'],
+    'depends': ['point_of_sale', 'pos_discount'],
     'data': [
         'security/ir.model.access.csv',
         'data/pos_action_lock_type_data.xml',

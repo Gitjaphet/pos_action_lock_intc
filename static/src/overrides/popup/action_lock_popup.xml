@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_action_lock_intc.ActionLockPopup">
+        <Dialog size="'sm'" title="props.title">
+            <div t-if="props.errorMessage" class="alert alert-danger py-2">
+                <t t-esc="props.errorMessage"/>
+            </div>
+            <input type="password"
+                   class="form-control form-control-lg mx-auto"
+                   t-model="state.inputValue"
+                   t-ref="input"
+                   t-att-placeholder="props.placeholder"
+                   t-on-keydown="onKeydown"/>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary btn-lg lh-lg"
+                        t-att-disabled="!this.state.inputValue"
+                        t-on-click="confirm">Valider</button>
+                <button class="btn btn-secondary btn-lg lh-lg"
+                        t-on-click="close">Annuler</button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>
