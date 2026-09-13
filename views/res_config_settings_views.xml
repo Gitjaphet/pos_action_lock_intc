@@ -42,6 +42,21 @@
                         </div>
                     </div>
                 </setting>
+
+                <setting string="Restreindre le bouton Paiement"
+                         help="Le bouton Paiement est masqué au PdV pour les employés sélectionnés.">
+                    <div class="content-group">
+                        <div class="row">
+                            <label string="Employés sans accès au paiement"
+                                   for="pos_intc_no_payment_employee_ids"
+                                   class="col-lg-3 o_light_label"/>
+                            <field name="pos_intc_no_payment_employee_ids"
+                                   widget="many2many_tags"
+                                   options="{'no_create': True}"
+                                   nolabel="1"/>
+                        </div>
+                    </div>
+                </setting>
             </block>
         </field>
     </record>

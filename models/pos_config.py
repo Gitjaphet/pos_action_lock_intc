@@ -42,6 +42,15 @@ class PosConfig(models.Model):
         help="Liste technique lue par l'interface du PdV.",
     )
 
+    intc_no_payment_employee_ids = fields.Many2many(
+        'hr.employee',
+        'pos_config_intc_no_payment_employee_rel',
+        'config_id',
+        'employee_id',
+        string="Employés sans accès au paiement",
+        help="Le bouton Paiement est masqué pour ces employés dans l'interface du PdV.",
+    )
+
     @api.depends('intc_lock_type_ids', 'intc_lock_type_ids.code')
     def _compute_intc_lock_codes(self):
         for config in self:

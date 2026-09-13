@@ -14,3 +14,7 @@ class ResConfigSettings(models.TransientModel):
         related='pos_config_id.intc_lock_password', readonly=False)
     pos_intc_lock_type_ids = fields.Many2many(
         related='pos_config_id.intc_lock_type_ids', readonly=False)
+    pos_intc_no_payment_employee_ids = fields.Many2many(
+        related='pos_config_id.intc_no_payment_employee_ids',
+        readonly=False,
+    )
