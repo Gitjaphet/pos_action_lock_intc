@@ -11,6 +11,6 @@ patch(ActionpadWidget.prototype, {
         if (!cashier) {
             return true;
         }
-        return !blocked.includes(cashier.id);
+        return !blocked.some((employee) => employee.id === cashier.id);
     },
 });
