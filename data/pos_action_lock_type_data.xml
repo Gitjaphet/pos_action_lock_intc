@@ -17,4 +17,16 @@
         <field name="code">cancel</field>
         <field name="sequence">30</field>
     </record>
+
+    <record id="action_lock_price" model="pos.action.lock.type">
+        <field name="name">Modifier le prix (ligne)</field>
+        <field name="code">price</field>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="action_lock_line_delete" model="pos.action.lock.type">
+        <field name="name">Supprimer une ligne</field>
+        <field name="code">line_delete</field>
+        <field name="sequence">50</field>
+    </record>
 </odoo>
